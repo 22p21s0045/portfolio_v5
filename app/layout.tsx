@@ -1,5 +1,6 @@
 "use client";
 import { Container, Typography } from "@mui/material";
+import Image from 'next/image'
 import Grid from "@mui/material/Grid";
 import React from "react";
 import "./globals.css";
@@ -13,7 +14,7 @@ function Layout({ children }: Props) {
       <Grid container spacing={2} id ="navbar-navigation">
         <Grid item lg={6}></Grid>
         <Grid item lg={6}>
-          <Grid container spacing={5} >
+          <Grid container spacing={6} >
             <Grid item>
               <p>Activity</p>
             </Grid>
@@ -26,7 +27,11 @@ function Layout({ children }: Props) {
             <Grid item>
               <p>Resume</p>
               </Grid>
+              <Grid item>
+            <Image src="/svg/navbar/github.svg" alt="Logo" width={37} height={37} style={{position:"relative",top:'18px'}}/>
+            </Grid>
           </Grid>
+          
         </Grid>
       </Grid>
       <div>{children}</div>
