@@ -1,9 +1,11 @@
 import React from 'react'
-
-function layout() {
+type Props = {
+  children: React.ReactNode
+}
+function Layout({children}: Props) {
   return (
     <div>layout</div>
   )
 }
 
-export default layout
+export default Layout
