@@ -1,10 +1,15 @@
 import Image from 'next/image'
 import styles from './page.module.css'
-
+import Grid from "@mui/material/Grid";
 export default function Home() {
   return (
     <div>
-      <h1>Hello nextjs 13</h1>
+      <Grid container>
+        <Grid item lg={6}>
+          </Grid>
+        <Grid item lg={6}>
+          </Grid>
+      </Grid>
     </div>
   )
 }
