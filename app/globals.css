@@ -28,8 +28,8 @@ html body{
   }
   
 }
-#hello   {
-  animation: 20s draw_svg ease-out,fill_svg 10s ease-out;
+#akkarawit ,#sittiprakan   {
+  animation: 30s draw_svg ease-out,fill_svg 10s ease-out;
   stroke-dasharray: 2110;
   /* stroke-dashoffset: 334; */
   /* animation-fill-mode: forwards; */
