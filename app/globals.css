@@ -11,3 +11,27 @@ html body{
   font-weight: 600;
 
 }
+@keyframes draw_svg {
+  0% {
+    stroke-dashoffset: 2110;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes fill_svg {
+  0% {
+      fill-opacity: 0;
+  }
+  100% {
+      fill-opacity: 1;
+  }
+  
+}
+#hello   {
+  animation: 20s draw_svg ease-out,fill_svg 10s ease-out;
+  stroke-dasharray: 2110;
+  /* stroke-dashoffset: 334; */
+  /* animation-fill-mode: forwards; */
+  
+}
