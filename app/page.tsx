@@ -3,7 +3,7 @@
 import { relative } from "path";
 import styles from "./page.module.css";
 import Grid from "@mui/material/Grid";
-
+import Image from 'next/image';
 export default function Home() {
   return (
     <div>
@@ -81,7 +81,11 @@ export default function Home() {
             </svg>
           </div>
         </Grid>
-        <Grid item lg={6}></Grid>
+        <Grid item lg={6} style={{position:"relative",left:200}}>
+          <Image src={"/svg/landing/men.png"} alt="Logo" width={555} height={740}  quality={100} unoptimized ={true}/>
+
+
+        </Grid>
       </Grid>
      
     </div>
