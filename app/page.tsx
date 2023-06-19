@@ -113,14 +113,35 @@ useEffect(() => {
           />
         </Grid>
       </Grid>
+      <Grid container >
+        <Grid item lg={12} md={6} sm ={6} style={{ position: "relative" }}>
       <animated.div ref={ref} style={{...springs}}>
+
         <Image
-          src={"/svg/skill/skill.png"}
+          src={"/svg/skill/fix.png"}
           alt="skill"
           width={1118}
           height={1134}
+          quality={100}
+          
         />
       </animated.div>
+      </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item lg={6}>
+          <div style={{display:"flex"}}>
+            <div style={{background:"rgba(255, 255, 255, 0.95)",borderRadius:"8px"}}>
+
+            </div>
+            <div>
+              </div>
+
+          </div>
+          </Grid>
+          <Grid item lg={6}>
+            </Grid>
+        </Grid>
     </div>
   );
 }
