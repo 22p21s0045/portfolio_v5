@@ -1,15 +1,35 @@
 "use client";
 import { Grid } from "./component";
-import Image from 'next/image';
+import Image from "next/image";
 
+import { useInView, animated,useSpring,easings } from "@react-spring/web";
+import { useEffect } from "react";
+import { duration } from "@mui/material";
 
 export default function Home() {
+  const [ref, inView] = useInView();
+  const springs = useSpring({
+    from: { opacity: 0 },
+    to: { opacity: inView ? 1 : 0 },
+    config: {
+      easing: easings.easeOutQuad,
+      duration: 6000,
+    },
+  });
   
+useEffect(() => {
+  if (inView) {
+    console.log("in view");
+  }
+}, [inView]);
   return (
-    
-      
-      <Grid container >
-        <Grid item lg={6} style={{position:"relative",left:"10%",top:"80px"}} >
+    <div>
+      <Grid container>
+        <Grid
+          item
+          lg={6}
+          style={{ position: "relative", left: "10%", top: "80px" }}
+        >
           <div>
             <svg
               width="465"
@@ -34,7 +54,7 @@ export default function Home() {
               </g>
             </svg>
           </div>
-          <div style={{ position: "relative", left: "22%" ,top:"5%"}}>
+          <div style={{ position: "relative", left: "22%", top: "5%" }}>
             <svg
               width="417.285"
               height="85.938"
@@ -44,7 +64,7 @@ export default function Home() {
               <g
                 id="akkarawit"
                 strokeLinecap="round"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 fontSize="9pt"
                 stroke="#4148da"
                 strokeWidth="0.25mm"
@@ -57,18 +77,18 @@ export default function Home() {
               </g>
             </svg>
           </div>
-          <div style={{position:"relative",left:"30%",top:"10%"}}>
+          <div style={{ position: "relative", left: "30%", top: "10%" }}>
             <svg
               width="453.663"
               height="87.502"
               viewBox="0 0 453.663 87.502"
               xmlns="http://www.w3.org/2000/svg"
-              id ="sittiprakan"
+              id="sittiprakan"
             >
               <g
                 id="svgGroup"
                 strokeLinecap="round"
-                fill-rule="evenodd"
+                fillRule="evenodd"
                 fontSize="9pt"
                 stroke="#b30a0a"
                 strokeWidth="0.25mm"
@@ -82,14 +102,25 @@ export default function Home() {
             </svg>
           </div>
         </Grid>
-        <Grid item lg={6} style={{position:"relative",left:200}}>
-          <Image src={"/svg/landing/men.png"} alt="Logo" width={555} height={740}  quality={100} unoptimized ={true}/>
-
-
+        <Grid item lg={6} style={{ position: "relative", left: 200 }}>
+          <Image
+            src={"/svg/landing/men.png"}
+            alt="Logo"
+            width={555}
+            height={740}
+            quality={100}
+            unoptimized={true}
+          />
         </Grid>
-       
       </Grid>
-      
-    
+      <animated.div ref={ref} style={{...springs}}>
+        <Image
+          src={"/svg/skill/skill.png"}
+          alt="skill"
+          width={1118}
+          height={1134}
+        />
+      </animated.div>
+    </div>
   );
 }
