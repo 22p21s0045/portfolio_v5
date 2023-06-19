@@ -2,7 +2,7 @@
 import { Grid } from "./component";
 import Image from "next/image";
 
-import { useInView, animated,useSpring,easings } from "@react-spring/web";
+import { useInView, animated, useSpring, easings } from "@react-spring/web";
 import { useEffect } from "react";
 import { duration } from "@mui/material";
 
@@ -16,12 +16,12 @@ export default function Home() {
       duration: 6000,
     },
   });
-  
-useEffect(() => {
-  if (inView) {
-    console.log("in view");
-  }
-}, [inView]);
+
+  useEffect(() => {
+    if (inView) {
+      console.log("in view");
+    }
+  }, [inView]);
   return (
     <div>
       <Grid container>
@@ -113,35 +113,53 @@ useEffect(() => {
           />
         </Grid>
       </Grid>
-      <Grid container >
-        <Grid item lg={12} md={6} sm ={6} style={{ position: "relative" }}>
-      <animated.div ref={ref} style={{...springs}}>
-
-        <Image
-          src={"/svg/skill/fix.png"}
-          alt="skill"
-          width={1118}
-          height={1134}
-          quality={100}
-          
-        />
-      </animated.div>
-      </Grid>
+      <Grid container>
+        <Grid item lg={12} md={6} sm={6} style={{ position: "relative" }}>
+          <animated.div ref={ref} style={{ ...springs }}>
+            <Image
+              src={"/svg/skill/fix.png"}
+              alt="skill"
+              width={1118}
+              height={1134}
+              quality={100}
+            />
+          </animated.div>
+        </Grid>
       </Grid>
       <Grid container>
         <Grid item lg={6}>
-          <div style={{display:"flex"}}>
-            <div style={{background:"rgba(255, 255, 255, 0.95)",borderRadius:"8px"}}>
+          <Grid container justifyContent="center">
+            <Grid
+              item
+              lg={4}
+              style={{
+                position: "relative",
+                background: "rgba(255, 255, 255, 0.95)",
+                borderRadius: 8,
 
-            </div>
-            <div>
+                flexWrap: "wrap",
+                width: "100%",
+                padding: 20,
+              }}
+              justifyContent="center"
+              display="flex"
+            >
+              <div>
+                <Image
+                  src={"/svg/skill/web-icon.png"}
+                  alt="Logo"
+                  width={45}
+                  height={45}
+                  style={{ position: "relative", top: "18px" }}
+                />
               </div>
-
-          </div>
-          </Grid>
-          <Grid item lg={6}>
+              <p style={{fontSize:"1.33rem",fontWeight:400,color:"#000",fontFamily:"Anton",width:"100%",height:"5%"}}>Frontend Development</p>
+              <p style={{color:"rgba(0, 0, 0, 0.52)",fontWeight:500}}>Lorem ipsum dolor sit amet consectetur. In augue senectus erat quis nibh odio dapibus vestibulum penatibus.</p>
             </Grid>
+          </Grid>
         </Grid>
+        <Grid item lg={6}></Grid>
+      </Grid>
     </div>
   );
 }
