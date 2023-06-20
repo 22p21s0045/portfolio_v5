@@ -128,7 +128,7 @@ export default function Home() {
       </Grid>
       <Grid container>
         <Grid item lg={6}>
-          <Grid container justifyContent="center">
+          <Grid container justifyContent="center" style={{ gap: 20 }}>
             <Grid
               item
               lg={4}
@@ -136,6 +136,8 @@ export default function Home() {
                 position: "relative",
                 background: "rgba(255, 255, 255, 0.95)",
                 borderRadius: 8,
+                height: 350,
+              
 
                 flexWrap: "wrap",
                 width: "100%",
@@ -151,10 +153,156 @@ export default function Home() {
                   width={45}
                   height={45}
                   style={{ position: "relative", top: "18px" }}
+                  quality={100}
                 />
               </div>
-              <p style={{fontSize:"1.33rem",fontWeight:400,color:"#000",fontFamily:"Anton",width:"100%",height:"5%"}}>Frontend Development</p>
-              <p style={{color:"rgba(0, 0, 0, 0.52)",fontWeight:500}}>Lorem ipsum dolor sit amet consectetur. In augue senectus erat quis nibh odio dapibus vestibulum penatibus.</p>
+              <p
+                style={{
+                  fontSize: "1.33rem",
+                  fontWeight: 400,
+                  color: "#000",
+                  fontFamily: "Anton",
+                  width: "100%",
+                  height: "5%",
+                }}
+              >
+                Frontend Development
+              </p>
+              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500,position:"relative", top:"-10%" }}>
+                Lorem ipsum dolor sit amet consectetur. In augue senectus erat
+                quis nibh odio dapibus vestibulum penatibus.
+              </p>
+            </Grid>
+            <Grid
+              item
+              lg={4}
+              style={{
+                position: "relative",
+                background: "rgba(255, 255, 255, 0.95)",
+                borderRadius: 8,
+                height: "40%",
+
+                flexWrap: "wrap",
+                width: "100%",
+                padding: 20,
+              }}
+              justifyContent="center"
+              display="flex"
+            >
+              <div>
+                <Image
+                  src={"/svg/skill/ux-icon.png"}
+                  alt="Logo"
+                  width={45}
+                  height={45}
+                  style={{ position: "relative", top: "18px" }}
+                  quality={100}
+                />
+              </div>
+              <p
+                style={{
+                  fontSize: "1.33rem",
+                  fontWeight: 400,
+                  color: "#000",
+                  fontFamily: "Anton",
+                  width: "100%",
+                  height: "5%",
+                }}
+              >
+                UX/UI Design
+              </p>
+              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500,position:"relative", marginTop:"-2%" }}>
+                Lorem ipsum dolor sit amet consectetur. In augue senectus erat
+                quis nibh odio dapibus vestibulum penatibus.
+              </p>
+            </Grid>
+            <Grid
+              item
+              lg={4}
+              style={{
+                position: "relative",
+                background: "rgba(255, 255, 255, 0.95)",
+                borderRadius: 8,
+
+                flexWrap: "wrap",
+                width: "100%",
+                padding: 20,
+                height: "10%",
+              
+              }}
+              justifyContent="center"
+              display="flex"
+            >
+              <div>
+                <Image
+                  src={"/svg/skill/backend-icon.png"}
+                  alt="Logo"
+                  width={45}
+                  height={45}
+                  style={{ position: "relative", top: "18px" }}
+                  quality={100}
+                />
+              </div>
+              <p
+                style={{
+                  fontSize: "1.33rem",
+                  fontWeight: 400,
+                  color: "#000",
+                  fontFamily: "Anton",
+                  width: "100%",
+                  height: "5%",
+                }}
+              >
+                Backend Development
+              </p>
+              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500 ,marginTop:"-2%"}}>
+                Lorem ipsum dolor sit amet consectetur. In augue senectus erat
+                quis nibh odio dapibus vestibulum penatibus.
+              </p>
+            </Grid>
+            <Grid
+              item
+              lg={4}
+              style={{
+                position: "relative",
+                background: "rgba(255, 255, 255, 0.95)",
+                borderRadius: 8,
+
+                flexWrap: "wrap",
+                width: "100%",
+                padding: 20,
+                marginTop: "-8%",
+                gap: 20,
+              }}
+              justifyContent="center"
+              display="flex"
+            >
+              <div>
+                <Image
+                  src={"/svg/skill/photograph-icon.png"}
+                  alt="Logo"
+                  width={45}
+                  height={45}
+                  style={{ position: "relative", top: "18px" }}
+                  quality={100}
+                />
+              </div>
+              <p
+                style={{
+                  fontSize: "1.33rem",
+                  fontWeight: 400,
+                  color: "#000",
+                  fontFamily: "Anton",
+                  width: "100%",
+                  
+                }}
+              >
+                Photography
+              </p>
+              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500,position:"relative",top:"-15%" }}>
+                Lorem ipsum dolor sit amet consectetur. In augue senectus erat
+                quis nibh odio dapibus vestibulum penatibus.
+              </p>
             </Grid>
           </Grid>
         </Grid>
