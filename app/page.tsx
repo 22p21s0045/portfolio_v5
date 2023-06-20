@@ -3,11 +3,14 @@ import { Grid } from "./component";
 import Image from "next/image";
 
 import { useInView, animated, useSpring, easings } from "@react-spring/web";
-import { useEffect } from "react";
-import { duration } from "@mui/material";
-
+import { use, useEffect, useRef } from "react";
+import Lottie from "lottie-react";
+import astronaut from "../public/lottie/astronaut-fix.json";
 export default function Home() {
   const [ref, inView] = useInView();
+  const [ref2, inView2] = useInView();
+  const [ref3, inView3] = useInView();
+  const astronautRef = useRef(null);
   const springs = useSpring({
     from: { opacity: 0 },
     to: { opacity: inView ? 1 : 0 },
@@ -16,7 +19,25 @@ export default function Home() {
       duration: 6000,
     },
   });
-
+  const springs_2 = useSpring({
+    from: { opacity: 0 ,
+    x: -100,
+    },
+    to: { opacity: inView2 ? 1 : 0 
+    ,x: inView2 ? 0 : -300,
+    
+    },
+    config: {
+      easing: easings.easeOutQuad,
+      duration: 1000,
+    },
+  });
+useEffect(() => {
+  if (inView2) {
+    ref3.current.play();
+  }
+  
+}, [inView2]);
   useEffect(() => {
     if (inView) {
       console.log("in view");
@@ -137,7 +158,6 @@ export default function Home() {
                 background: "rgba(255, 255, 255, 0.95)",
                 borderRadius: 8,
                 height: 350,
-              
 
                 flexWrap: "wrap",
                 width: "100%",
@@ -168,7 +188,14 @@ export default function Home() {
               >
                 Frontend Development
               </p>
-              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500,position:"relative", top:"-10%" }}>
+              <p
+                style={{
+                  color: "rgba(0, 0, 0, 0.52)",
+                  fontWeight: 500,
+                  position: "relative",
+                  top: "-10%",
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur. In augue senectus erat
                 quis nibh odio dapibus vestibulum penatibus.
               </p>
@@ -211,7 +238,14 @@ export default function Home() {
               >
                 UX/UI Design
               </p>
-              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500,position:"relative", marginTop:"-2%" }}>
+              <p
+                style={{
+                  color: "rgba(0, 0, 0, 0.52)",
+                  fontWeight: 500,
+                  position: "relative",
+                  marginTop: "-2%",
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur. In augue senectus erat
                 quis nibh odio dapibus vestibulum penatibus.
               </p>
@@ -228,7 +262,6 @@ export default function Home() {
                 width: "100%",
                 padding: 20,
                 height: "10%",
-              
               }}
               justifyContent="center"
               display="flex"
@@ -255,7 +288,13 @@ export default function Home() {
               >
                 Backend Development
               </p>
-              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500 ,marginTop:"-2%"}}>
+              <p
+                style={{
+                  color: "rgba(0, 0, 0, 0.52)",
+                  fontWeight: 500,
+                  marginTop: "-2%",
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur. In augue senectus erat
                 quis nibh odio dapibus vestibulum penatibus.
               </p>
@@ -294,20 +333,44 @@ export default function Home() {
                   color: "#000",
                   fontFamily: "Anton",
                   width: "100%",
-                  
                 }}
               >
                 Photography
               </p>
-              <p style={{ color: "rgba(0, 0, 0, 0.52)", fontWeight: 500,position:"relative",top:"-15%" }}>
+              <p
+                style={{
+                  color: "rgba(0, 0, 0, 0.52)",
+                  fontWeight: 500,
+                  position: "relative",
+                  top: "-15%",
+                }}
+              >
                 Lorem ipsum dolor sit amet consectetur. In augue senectus erat
                 quis nibh odio dapibus vestibulum penatibus.
               </p>
             </Grid>
           </Grid>
         </Grid>
-        <Grid item lg={6}></Grid>
+        <Grid item lg={6}>
+          <animated.div style={{ ...springs_2 }} ref = {ref2}>
+            <Image
+              src={"/svg/skill/tablets.png"}
+              alt="Logo"
+              width={555}
+              height={740}
+              quality={100}
+              unoptimized={true}
+            />
+          </animated.div>
+        </Grid>
       </Grid>
+      <Grid container>
+        <Grid item lg={12}>
+          
+          <Lottie animationData={astronaut} style={{ width: "100%" }}  loop={false} lottieRef={ref3}/>
+          
+          </Grid>
+          </Grid>
     </div>
   );
 }
