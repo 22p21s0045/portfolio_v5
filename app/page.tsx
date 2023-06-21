@@ -2,7 +2,8 @@
 import { Grid } from "./component";
 import Image from "next/image";
 import { useInView, animated, useSpring, easings } from "@react-spring/web";
-import { useEffect, useRef } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { useEffect } from "react";
 import Lottie from "lottie-react";
 import astronaut from "../public/lottie/astronaut-fix.json";
 import activity from "../public/lottie/activity.json";
@@ -11,7 +12,7 @@ export default function Home() {
   const [ref2, inView2] = useInView();
   const [ref3, inView3] = useInView();
   const [ref4, inView4] = useInView();
-  
+
   const springs = useSpring({
     from: { opacity: 0 },
     to: { opacity: inView ? 1 : 0 },
@@ -33,8 +34,7 @@ export default function Home() {
     if (inView3) {
       ref3.current.play();
       console.log("in view 3");
-    }
-    else{
+    } else {
       ref3.current.pause();
     }
   }, [inView3]);
@@ -42,8 +42,7 @@ export default function Home() {
     if (inView4) {
       ref4.current.play();
       console.log("in view 4");
-    }
-    else{
+    } else {
       ref4.current.pause();
     }
   }, [inView4]);
@@ -371,27 +370,40 @@ export default function Home() {
       <Grid container>
         <Grid item lg={12}>
           <animated.div ref={ref3}>
-          <Lottie
-            animationData={astronaut}
-            style={{ width: "100%" }}
-            loop={false}
-            lottieRef={ref3}
-            autoPlay={false}
-          />
+            <Lottie
+              animationData={astronaut}
+              style={{ width: "100%" }}
+              loop={false}
+              lottieRef={ref3}
+              autoPlay={false}
+            />
           </animated.div>
         </Grid>
       </Grid>
       <Grid container>
         <Grid item lg={12}>
           <animated.div ref={ref4}>
-          <Lottie
-            animationData={activity}
-            style={{ width: "100%" }}
-            loop={false}
-            lottieRef={ref4}
-            autoPlay={false}
-          />
+            <Lottie
+              animationData={activity}
+              style={{ width: "100%" }}
+              loop={false}
+              lottieRef={ref4}
+              autoPlay={false}
+            />
           </animated.div>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item lg={12}>
+          <Swiper
+            spaceBetween={50}
+            slidesPerView={3}
+            onSlideChange={() => console.log("slide change")}
+            onSwiper={(swiper) => console.log(swiper)}
+          >
+            <SwiperSlide>Slide 1</SwiperSlide>
+            
+          </Swiper>
         </Grid>
       </Grid>
     </div>
