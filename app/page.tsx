@@ -1,16 +1,17 @@
 "use client";
 import { Grid } from "./component";
 import Image from "next/image";
-
 import { useInView, animated, useSpring, easings } from "@react-spring/web";
-import { use, useEffect, useRef } from "react";
+import { useEffect, useRef } from "react";
 import Lottie from "lottie-react";
 import astronaut from "../public/lottie/astronaut-fix.json";
+import activity from "../public/lottie/activity.json";
 export default function Home() {
   const [ref, inView] = useInView();
   const [ref2, inView2] = useInView();
   const [ref3, inView3] = useInView();
-  const astronautRef = useRef(null);
+  const [ref4, inView4] = useInView();
+  
   const springs = useSpring({
     from: { opacity: 0 },
     to: { opacity: inView ? 1 : 0 },
@@ -20,29 +21,32 @@ export default function Home() {
     },
   });
   const springs_2 = useSpring({
-    from: { opacity: 0 ,
-    x: -100,
-    },
-    to: { opacity: inView2 ? 1 : 0 
-    ,x: inView2 ? 0 : -300,
-    
-    },
+    from: { opacity: 0, x: -100 },
+    to: { opacity: inView2 ? 1 : 0, x: inView2 ? 0 : -300 },
     config: {
       easing: easings.easeOutQuad,
       duration: 1000,
     },
   });
-useEffect(() => {
-  if (inView2) {
-    ref3.current.play();
-  }
-  
-}, [inView2]);
+
   useEffect(() => {
-    if (inView) {
-      console.log("in view");
+    if (inView3) {
+      ref3.current.play();
+      console.log("in view 3");
     }
-  }, [inView]);
+    else{
+      ref3.current.pause();
+    }
+  }, [inView3]);
+  useEffect(() => {
+    if (inView4) {
+      ref4.current.play();
+      console.log("in view 4");
+    }
+    else{
+      ref4.current.pause();
+    }
+  }, [inView4]);
   return (
     <div>
       <Grid container>
@@ -352,7 +356,7 @@ useEffect(() => {
           </Grid>
         </Grid>
         <Grid item lg={6}>
-          <animated.div style={{ ...springs_2 }} ref = {ref2}>
+          <animated.div style={{ ...springs_2 }} ref={ref2}>
             <Image
               src={"/svg/skill/tablets.png"}
               alt="Logo"
@@ -366,11 +370,30 @@ useEffect(() => {
       </Grid>
       <Grid container>
         <Grid item lg={12}>
-          
-          <Lottie animationData={astronaut} style={{ width: "100%" }}  loop={false} lottieRef={ref3}/>
-          
-          </Grid>
-          </Grid>
+          <animated.div ref={ref3}>
+          <Lottie
+            animationData={astronaut}
+            style={{ width: "100%" }}
+            loop={false}
+            lottieRef={ref3}
+            autoPlay={false}
+          />
+          </animated.div>
+        </Grid>
+      </Grid>
+      <Grid container>
+        <Grid item lg={12}>
+          <animated.div ref={ref4}>
+          <Lottie
+            animationData={activity}
+            style={{ width: "100%" }}
+            loop={false}
+            lottieRef={ref4}
+            autoPlay={false}
+          />
+          </animated.div>
+        </Grid>
+      </Grid>
     </div>
   );
 }
