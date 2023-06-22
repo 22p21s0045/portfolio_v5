@@ -3,6 +3,7 @@ import { Grid } from "./component";
 import Image from "next/image";
 import { useInView, animated, useSpring, easings } from "@react-spring/web";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Mousewheel, Autoplay } from "swiper";
 import { useEffect } from "react";
 import Lottie from "lottie-react";
 import astronaut from "../public/lottie/astronaut-fix.json";
@@ -394,17 +395,106 @@ export default function Home() {
         </Grid>
       </Grid>
       <Grid container>
+
+
+      <Swiper
+        spaceBetween={30}
+        slidesPerView={3}
+        // onSlideChange={() => console.log("slide change")}
+        // onSwiper={(swiper) => console.log(swiper)}
+        loop={true}
+        modules={[Mousewheel, Autoplay]}
+        style={{ transitionTimingFunction: "linear" }}
+        autoplay={{
+          delay: 0,
+          disableOnInteraction: false,
+          reverseDirection: true,
+          pauseOnMouseEnter: true,
+        }}
+        speed={3000}
+      >
+        <SwiperSlide
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <Image
+              src={"/img/title.png"}
+              alt="Logo"
+              height={588}
+              width={369}
+              quality={100}
+            />
+          </div>
+          <p>1 Lorem, ipsum dolor.</p>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <Image
+              src={"/img/title.png"}
+              alt="Logo"
+              height={588}
+              width={369}
+              quality={100}
+            />
+          </div>
+          <p>2 Lorem, ipsum dolor.</p>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <Image
+              src={"/img/title.png"}
+              alt="Logo"
+              height={588}
+              width={369}
+              quality={100}
+            />
+          </div>
+          <p>3 Lorem, ipsum dolor.</p>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </SwiperSlide>
+        <SwiperSlide
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <Image
+              src={"/img/title.png"}
+              alt="Logo"
+              height={588}
+              width={369}
+              quality={100}
+            />
+          </div>
+          <p>4 Lorem, ipsum dolor.</p>
+          <p>Lorem ipsum dolor sit amet consectetur.</p>
+        </SwiperSlide>
+      </Swiper>
+      </Grid>
+      <Grid container>
         <Grid item lg={12}>
-          <Swiper
-            spaceBetween={50}
-            slidesPerView={3}
-            onSlideChange={() => console.log("slide change")}
-            onSwiper={(swiper) => console.log(swiper)}
-          >
-            <SwiperSlide>Slide 1</SwiperSlide>
-            
-          </Swiper>
-        </Grid>
+          
+          </Grid>
       </Grid>
     </div>
   );
