@@ -7,6 +7,7 @@ import { Mousewheel, Autoplay } from "swiper";
 import { useEffect } from "react";
 import Lottie from "lottie-react";
 import astronaut from "../public/lottie/astronaut-fix.json";
+import Bonvoyage from "../public/svg/end/bon-voyage.svg";
 import activity from "../public/lottie/activity.json";
 export default function Home() {
   const [ref, inView] = useInView();
@@ -493,6 +494,7 @@ export default function Home() {
       </Grid>
       <Grid container>
         <Grid item lg={12}>
+          <Bonvoyage/>
           
           </Grid>
       </Grid>
