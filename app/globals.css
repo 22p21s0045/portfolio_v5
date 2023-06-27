@@ -31,7 +31,7 @@ html body{
   }
   
 }
-#akkarawit ,#sittiprakan   {
+#akkarawit ,#sittiprakan,#bon-voyage   {
   animation: 30s draw_svg ease-out,fill_svg 30s ease-out;
   stroke-dasharray: 2110;
   /* stroke-dashoffset: 334; */
