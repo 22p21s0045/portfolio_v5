@@ -542,7 +542,7 @@ export default function Home() {
         <Grid item lg={12}>
         <Lottie
               animationData={cat}
-              style={{ width: "625px",height:"870px",position:"relative",top:"0",left:"-100px" }}
+              style={{ width: "625px",height:"730px",position:"relative",top:"0",left:"-100px" }}
               loop={true}
              
               

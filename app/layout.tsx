@@ -3,6 +3,7 @@ import React from "react";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import 'swiper/css';
+import Footer from "@/components/Footer";
 type Props = {
   children: React.ReactNode;
 };
@@ -14,7 +15,9 @@ function RootLayout({ children }: Props) {
 
       <body>
       <Navbar />
-        {children}</body>
+        {children}
+        <Footer/>
+        </body>
     </html>
   );
 }
